@@ -1,6 +1,6 @@
 abstract class Car{
-    public abstract drive(value: number): void;
-    public abstract refuel(value: number): void;
+    public abstract drive(valueAddMileage: number): void;
+    public abstract refuel(valueAddFuel: number): void;
     protected  mileage: number = 0;
     protected fuel: number = 0;
 }
