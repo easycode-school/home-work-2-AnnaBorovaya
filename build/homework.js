@@ -15,8 +15,7 @@ class Honda extends Car {
     drive(valueAddMileage) {
         this.mileage = this.mileage + valueAddMileage;
         this.fuel = this.fuel - valueAddMileage * Honda.expenseFuel;
-        if (this.fuel <= 0)
-            return console.log('Вам необходимо заправиться');
+        if (this.fuel <= 0) return console.log('Вам необходимо заправиться');
     }
     ;
     /**
