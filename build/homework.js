@@ -1,57 +1,54 @@
-abstract class Car{
-    public abstract drive(value: number): void;
-    public abstract refuel(value: number): void;
-    protected  mileage: number = 0;
-    protected fuel: number = 0;
+class Car {
+    constructor() {
+        this.mileage = 0;
+        this.fuel = 0;
+    }
 }
-
 /*Первый вариант*/
 class Honda extends Car {
-
-    protected static expenseFuel: number = 0.07;
-    
     /**
      * drive - метод который вычисляет:
      * 1. колличество общего пробега машины в зависимости от проеханного киллометража
      * 2. колличество оставшегося бензина в машине
      * @param valueAddMileage number
      */
-    public drive(valueAddMileage: number): void {
+    drive(valueAddMileage) {
         this.mileage = this.mileage + valueAddMileage;
         this.fuel = this.fuel - valueAddMileage * Honda.expenseFuel;
-        if (this.fuel <= 0) return console.log('Вам необходимо заправиться');
-    };
-
+        if (this.fuel <= 0)
+            return console.log('Вам необходимо заправиться');
+    }
+    ;
     /**
      * refuel - метод который вычисляет: колличество бензина в машине при заправке
      * @param valueAddFuel number
      */
-    public refuel(valueAddFuel: number): void {
+    refuel(valueAddFuel) {
         this.fuel = this.fuel + valueAddFuel;
-    };
-
+    }
+    ;
     /**
      * resFuel - метод для получения значения protected свойства fuel
      */
-    public get resFuel(): number {
-        return this.fuel
-    };
-
+    get resFuel() {
+        return this.fuel;
+    }
+    ;
     /**
      * resMileage - метод для получения значения protected свойства mileage
      */
-    public get resMileage(): number {
+    get resMileage() {
         return this.mileage;
-    };
+    }
+    ;
 }
-
-
+Honda.expenseFuel = 0.07;
 /*Второй вариант*/
 class Matiz extends Car {
-
-    protected opportunityDrive: number = 0
-    protected static expenseFuel: number = 0.1;
-    
+    constructor() {
+        super(...arguments);
+        this.opportunityDrive = 0;
+    }
     /**
      * drive - метод который вычисляет:
      * 1. Возможное колличество километров, которые автомобиль имеет возможность проехать с имеющимся у него колличеством бензина
@@ -61,7 +58,7 @@ class Matiz extends Car {
      * а колличество бензина составит текущее значение минус затраченное на проезд желаемого колличества килллометров
      * @param valueAddMileage number
      */
-    public drive(valueAddMileage: number): void {
+    drive(valueAddMileage) {
         this.opportunityDrive = this.fuel / Matiz.expenseFuel;
         if (this.opportunityDrive <= valueAddMileage) {
             this.mileage = this.mileage + this.opportunityDrive;
@@ -70,27 +67,29 @@ class Matiz extends Car {
         }
         this.mileage = this.mileage + valueAddMileage;
         this.fuel = this.fuel - valueAddMileage * Matiz.expenseFuel;
-    };
-
+    }
+    ;
     /**
      * refuel - метод который вычисляет: колличество бензина в машине при заправке
      * @param valueAddFuel number
      */
-    public refuel(valueAddFuel: number): void {
+    refuel(valueAddFuel) {
         this.fuel = this.fuel + valueAddFuel;
-    };
-
+    }
+    ;
     /**
      * resFuel - метод для получения значения protected свойства fuel
      */
-    public get resFuel(): number {
-        return this.fuel
-    };
-
+    get resFuel() {
+        return this.fuel;
+    }
+    ;
     /**
      * resMileage - метод для получения значения protected свойства mileage
      */
-    public get resMileage(): number {
+    get resMileage() {
         return this.mileage;
-    };
+    }
+    ;
 }
+Matiz.expenseFuel = 0.1;
