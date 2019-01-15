@@ -13,9 +13,10 @@ class Honda extends Car {
      * @param valueAddMileage number
      */
     drive(valueAddMileage) {
-        this.mileage = this.mileage + valueAddMileage;
+        this.mileage += valueAddMileage;
         this.fuel = this.fuel - valueAddMileage * Honda.expenseFuel;
-        if (this.fuel <= 0) return console.log('Вам необходимо заправиться');
+        if (this.fuel <= 0)
+            return console.log('Вам необходимо заправиться');
     }
     ;
     /**
@@ -23,7 +24,7 @@ class Honda extends Car {
      * @param valueAddFuel number
      */
     refuel(valueAddFuel) {
-        this.fuel = this.fuel + valueAddFuel;
+        this.fuel += valueAddFuel;
     }
     ;
     /**
@@ -60,11 +61,11 @@ class Matiz extends Car {
     drive(valueAddMileage) {
         this.opportunityDrive = this.fuel / Matiz.expenseFuel;
         if (this.opportunityDrive <= valueAddMileage) {
-            this.mileage = this.mileage + this.opportunityDrive;
+            this.mileage += this.opportunityDrive;
             this.fuel = 0;
             return console.log('Вам необходимо заправиться');
         }
-        this.mileage = this.mileage + valueAddMileage;
+        this.mileage += valueAddMileage;
         this.fuel = this.fuel - valueAddMileage * Matiz.expenseFuel;
     }
     ;
@@ -73,7 +74,7 @@ class Matiz extends Car {
      * @param valueAddFuel number
      */
     refuel(valueAddFuel) {
-        this.fuel = this.fuel + valueAddFuel;
+        this.fuel += valueAddFuel;
     }
     ;
     /**

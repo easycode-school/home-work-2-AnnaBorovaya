@@ -27,7 +27,7 @@ class Honda extends Car {
      * @param valueAddFuel number
      */
     public refuel(valueAddFuel: number): void {
-        this.fuel = this.fuel + valueAddFuel;
+        this.fuel += valueAddFuel;
     };
 
     /**
@@ -68,7 +68,7 @@ class Matiz extends Car {
             this.fuel = 0;
             return console.log('Вам необходимо заправиться');
         }
-        this.mileage = this.mileage + valueAddMileage;
+        this.mileage += valueAddMileage;
         this.fuel = this.fuel - valueAddMileage * Matiz.expenseFuel;
     };
 
@@ -77,7 +77,7 @@ class Matiz extends Car {
      * @param valueAddFuel number
      */
     public refuel(valueAddFuel: number): void {
-        this.fuel = this.fuel + valueAddFuel;
+        this.fuel += valueAddFuel;
     };
 
     /**
