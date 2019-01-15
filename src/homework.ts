@@ -17,7 +17,7 @@ class Honda extends Car {
      * @param valueAddMileage number
      */
     public drive(valueAddMileage: number): void {
-        this.mileage = this.mileage + valueAddMileage;
+        this.mileage += valueAddMileage;
         this.fuel = this.fuel - valueAddMileage * Honda.expenseFuel;
         if (this.fuel <= 0) return console.log('Вам необходимо заправиться');
     };
@@ -64,7 +64,7 @@ class Matiz extends Car {
     public drive(valueAddMileage: number): void {
         this.opportunityDrive = this.fuel / Matiz.expenseFuel;
         if (this.opportunityDrive <= valueAddMileage) {
-            this.mileage = this.mileage + this.opportunityDrive;
+            this.mileage += this.opportunityDrive;
             this.fuel = 0;
             return console.log('Вам необходимо заправиться');
         }
